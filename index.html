@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
+    <script src="./index.js"></script>
+    <title>Document</title>
+  </head>
+  <body onload="reset()" style="position: absolute; width: 100vw; height: 100vh; margin: 0; padding: 0; overflow: hidden;">
+    <canvas id="myCanvas" style="width:100%; height:100%;
+    margin: 0; padding: 0;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;"></canvas>
+    <div id="overlay" style="position: absolute; top:0; left:0; width: 100%; height: 100%;">
+      <div id="menu" style="display: inline-block; opacity: 0.25;" onmouseover="event.target.style.opacity=1.0;" onmouseleave="event.target.style.opacity=0.25;">
+        <table style="border: 1px solid #000; display: inline-block; padding: 10px; margin: 10px; background-color: white; border-radius: 5px;">
+          <tr>
+            <td><label>Status:</label></td>
+            <td><label id="status">Carving..</label>&nbsp;&nbsp;</td>
+            <td><button onclick="stopGo()" id="stop-go-button">Carve</button></td>
+            <td><button onclick="step()" disabled id="step-button">Step</button></td>
+          </tr>
+        </table>
+        <br/>
+        <table style="border: 1px solid #000; display: inline-block; padding: 10px; margin: 10px; background-color: white; border-radius: 5px;" id="controlsTable">
+          <tr>
+            <td><label>Maze Size</label></td>
+            <td><input type="range" min="0" max="100" value="50" class="slider" id="maze-size" onchange="setSize(event.target.value)"></td>
+          </tr>
+          <tr>
+            <td><label>Cursor Speed</label></td>
+            <td><input type="range" min="0" max="100" value="0" class="slider" id="cursor-speed" onchange="setCursorDelay(event.target.value)"></td>
+          </tr>
+          <tr>
+            <td><label>Wall Color</label></td>
+            <td>0x<input type="text" size="8" value="ff000000" id="wall-color" onchange="setWallColor(event.target.value)"></td>
+          </tr>
+          <tr>
+            <td><label>Path Color</label></td>
+            <td>0x<input type="text" size="8" value="00000000" id="path-color" onchange="setPathColor(event.target.value)"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
